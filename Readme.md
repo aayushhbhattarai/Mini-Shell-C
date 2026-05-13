@@ -15,5 +15,5 @@ A lightweight command-line interpreter built in C. This project demonstrates cor
 
 ## 💻 How to Run
 1. Open a terminal (CMD or PowerShell).
-2. Compile using GCC: `gcc main.c -o myshell.exe`
-3. Run it: `./myshell.exe`
+2. Compile using GCC: `gcc main.c -o 67.exe`
+3. Run it: `./67.exe`
