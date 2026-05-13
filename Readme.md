@@ -1,18 +1,19 @@
-# Basic Shell in C
+# Simple C Shell (Windows)
 
-A simple **command-line shell** implemented in C for learning and practice purposes.  
-This is a **Work In Progress (WIP)** project, intended for beginners to understand how shells work under the hood.
+A lightweight command-line interpreter built in C. This project demonstrates core systems programming concepts on Windows.
 
----
+## 🚀 Features
+- **Dynamic Prompt:** Displays the current working directory using `_getcwd`.
+- **Command Tokenization:** Parses user input into executable arguments using `strtok`.
+- **Internal Commands:** Handles `cd` (Change Directory) and `exit` manually.
+- **External Execution:** Launches system programs (like `notepad`, `ipconfig`, or `dir`) using `_spawnvp`.
 
-## Features (Planned / WIP)
+## 🛠️ Concepts Learned
+- **Memory Buffers:** Managing `char` arrays for user input.
+- **Pointer Arrays:** Creating a argument list for process spawning.
+- **Process Management:** Distinguishing between shell-builtin commands and external binaries.
 
-- Execute basic system commands (e.g., `ls`)  
-- Handle simple command-line arguments  
-- Support for running processes in foreground  
-- Basic error handling for invalid commands  
-
-*(More advanced features like piping, redirection, and background processes are planned for future updates.)*
-
----
-
+## 💻 How to Run
+1. Open a terminal (CMD or PowerShell).
+2. Compile using GCC: `gcc main.c -o myshell.exe`
+3. Run it: `./myshell.exe`
