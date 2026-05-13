@@ -9,19 +9,11 @@ int main()
     char input[1024];
     char *list[100];
     const char *clist[100];
-    char cwd[1024];
 
     while (1)
     {
 
-        if (_getcwd(cwd, sizeof(cwd)) != NULL) // Instead of printf("$: ");
-        {
-            printf("%s $: ", cwd);
-        }
-        else
-        {
-            printf("$: ");
-        }
+        printf("$: ");
 
         fgets(input, sizeof(input), stdin); // ask for input using fgets to get long character
 
@@ -49,16 +41,20 @@ int main()
         }
         list[i] = NULL;
         clist[i] = NULL;
+        if (list[0] == NULL)
+            continue;
 
         if (strcmp(list[0], "cd") == 0)
         {
-            if (chdir(list[1]) == 0)
+            if (list[1] == NULL)
             {
+                printf("Missing argument for cd \n");
             }
-            else
+            else if (chdir(list[1]) != 0)
             {
                 printf("No Directory Found!\n");
             }
+            continue;
         }
 
         if (list[0] != 0)
