@@ -2,16 +2,27 @@
 #include <stdlib.h>
 #include <string.h>
 #include <process.h>
+#include <direct.h>
 
 int main()
 {
     char input[1024];
     char *list[100];
     const char *clist[100];
+    char cwd[1024];
 
     while (1)
     {
-        printf("$: ");                      // constant input symbol
+
+        if (_getcwd(cwd, sizeof(cwd)) != NULL) // Instead of printf("$: ");
+        {
+            printf("%s $: ", cwd);
+        }
+        else
+        {
+            printf("$: ");
+        }
+
         fgets(input, sizeof(input), stdin); // ask for input using fgets to get long character
 
         int len = strlen(input);               // when running without this we get a problem on running the string delimiter where at the end we got \n this trims the last \n
@@ -38,6 +49,17 @@ int main()
         }
         list[i] = NULL;
         clist[i] = NULL;
+
+        if (strcmp(list[0], "cd") == 0)
+        {
+            if (chdir(list[1]) == 0)
+            {
+            }
+            else
+            {
+                printf("No Directory Found!\n");
+            }
+        }
 
         if (list[0] != 0)
         {
